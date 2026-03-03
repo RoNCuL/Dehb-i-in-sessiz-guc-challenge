@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sessiz Güç – 7 Günlük Ebeveynlik Kampı</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FDF6EC;
+    --warm: #F5E6D0;
+    --peach: #F4A97F;
+    --terracotta: #C96A3A;
+    --deep: #3D2314;
+    --sage: #7A9E7E;
+    --gold: #D4A853;
+    --light-sage: #EEF5EF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Nunito', sans-serif;
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #3D2314 0%, #7A3520 50%, #C96A3A 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: rgba(244,169,127,0.12);
+    top: -150px; right: -150px;
+    animation: pulse 6s ease-in-out infinite;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(212,168,83,0.1);
+    bottom: -100px; left: -100px;
+    animation: pulse 8s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(212,168,83,0.25);
+    border: 1px solid rgba(212,168,83,0.5);
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    position: relative; z-index: 1;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 8vw, 88px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.0;
+    position: relative; z-index: 1;
+    animation: fadeDown 0.9s ease 0.1s both;
+  }
+
+  .hero h1 span {
+    display: block;
+    color: var(--peach);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 3vw, 22px);
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin: 24px auto 0;
+    line-height: 1.7;
+    position: relative; z-index: 1;
+    animation: fadeDown 1s ease 0.2s both;
+  }
+
+  .hero-tagline {
+    margin-top: 40px;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative; z-index: 1;
+    animation: fadeDown 1.1s ease 0.3s both;
+  }
+
+  .hero-tagline span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .hero-tagline span::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 12px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    animation: bounce 2s infinite;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* INTRO SECTION */
+  .intro {
+    background: var(--warm);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .intro-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .intro p {
+    font-size: 19px;
+    line-height: 1.85;
+    color: #6B4226;
+    margin-bottom: 16px;
+  }
+
+  .intro p strong {
+    color: var(--terracotta);
+  }
+
+  /* DAYS */
+  .days-section {
+    padding: 80px 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: var(--deep);
+    margin-bottom: 12px;
+  }
+
+  .section-header p {
+    color: #8B6045;
+    font-size: 17px;
+  }
+
+  .days-grid {
+    display: grid;
+    gap: 28px;
+  }
+
+  .day-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(61,35,20,0.07);
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+  }
+
+  .day-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .day-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 50px rgba(61,35,20,0.14);
+  }
+
+  .day-card.completed .day-number {
+    background: var(--sage) !important;
+  }
+
+  .day-card.completed .day-number::after {
+    content: '✓';
+    position: absolute;
+    top: 10px; right: 10px;
+    background: rgba(255,255,255,0.3);
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  .day-number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .day-number .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.9);
+    line-height: 1;
+  }
+
+  .day-number .label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-top: 4px;
+  }
+
+  .day-number .emoji {
+    font-size: 28px;
+    margin-top: 10px;
+  }
+
+  .day-content {
+    padding: 32px 36px;
+  }
+
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .day-teaser {
+    font-size: 15px;
+    color: #8B6045;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .day-detail {
+    display: none;
+    font-size: 15px;
+    color: #6B4226;
+    line-height: 1.8;
+  }
+
+  .day-card.open .day-detail {
+    display: block;
+    animation: expand 0.4s ease;
+  }
+
+  @keyframes expand {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .example-block {
+    background: var(--light-sage);
+    border-left: 4px solid var(--sage);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+
+  .example-block .wrong {
+    color: #C0392B;
+    margin-bottom: 8px;
+  }
+
+  .example-block .right {
+    color: #27AE60;
+  }
+
+  .task-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    background: var(--terracotta);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .task-btn:hover {
+    background: var(--deep);
+    transform: scale(1.03);
+  }
+
+  .task-btn.done {
+    background: var(--sage);
+  }
+
+  .toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--terracotta);
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    transition: color 0.2s;
+  }
+
+  .toggle-btn:hover { color: var(--deep); }
+
+  .toggle-btn .arrow {
+    transition: transform 0.3s;
+    display: inline-block;
+  }
+
+  .day-card.open .toggle-btn .arrow {
+    transform: rotate(180deg);
+  }
+
+  /* PROGRESS */
+  .progress-section {
+    background: linear-gradient(135deg, var(--deep), #7A3520);
+    padding: 60px 24px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .progress-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .progress-sub {
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 36px;
+    font-size: 16px;
+  }
+
+  .progress-bar-wrap {
+    max-width: 500px;
+    margin: 0 auto 16px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50px;
+    height: 18px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--peach), var(--gold));
+    border-radius: 50px;
+    transition: width 0.8s cubic-bezier(.22,1,.36,1);
+  }
+
+  .progress-label {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--gold);
+  }
+
+  .progress-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .progress-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transition: background 0.4s ease, transform 0.3s;
+  }
+
+  .progress-dot.done {
+    background: var(--gold);
+    transform: scale(1.2);
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--deep);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .footer strong {
+    color: var(--peach);
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* COLORS per day */
+  .d1 { background: linear-gradient(160deg, #C96A3A, #E8845A); }
+  .d2 { background: linear-gradient(160deg, #9B59B6, #C39BD3); }
+  .d3 { background: linear-gradient(160deg, #2980B9, #5DADE2); }
+  .d4 { background: linear-gradient(160deg, #E74C3C, #EC7063); }
+  .d5 { background: linear-gradient(160deg, #27AE60, #58D68D); }
+  .d6 { background: linear-gradient(160deg, #E67E22, #F0B27A); }
+  .d7 { background: linear-gradient(160deg, #D4A853, #F7DC6F); }
+
+  @media (max-width: 600px) {
+    .day-card { grid-template-columns: 90px 1fr; }
+    .day-number .num { font-size: 36px; }
+    .day-content { padding: 20px 18px; }
+    .day-title { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🚀 7 Günlük Dönüşüm Programı</div>
+  <h1>Sessiz Güç<span>Ebeveynlik Kampı</span></h1>
+  <p class="hero-sub">Bağırmadan, dırdır etmeden, pişmanlık duymadan... Frekansı değiştir, evi dönüştür.</p>
+  <div class="hero-tagline">
+    <span>7 Görev</span>
+    <span>Sinir sistemi onarımı</span>
+    <span>Gerçek bağlantı</span>
+  </div>
+  <div class="scroll-hint">↓ Aşağı kaydır</div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <p>Biliyorum, <strong>yorgunsun.</strong> Aynı şeyleri 100 kere söylemekten, bağırmaktan ve sonra pişman olup gece vicdan azabı çekmekten bıktın.</p>
+    <p>Ama bu senin suçun değil. Sadece <strong>"yanlış frekanstan" yayın yapıyorsun.</strong></p>
+    <p>Bu bir sabır testi değil — bu bir <strong>sinir sistemi onarımı.</strong> Her gün tek bir görev, haftaya bambaşka bir ev.</p>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+<section class="progress-section">
+  <div class="progress-title">İlerleme Durumun</div>
+  <div class="progress-sub">Görevleri tamamladıkça burayı işaretlemeyi unutma!</div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progressFill" style="width: 0%"></div>
+  </div>
+  <div class="progress-label" id="progressLabel">0 / 7 Gün</div>
+  <div class="progress-dots" id="progressDots">
+    <div class="progress-dot" data-day="1"></div>
+    <div class="progress-dot" data-day="2"></div>
+    <div class="progress-dot" data-day="3"></div>
+    <div class="progress-dot" data-day="4"></div>
+    <div class="progress-dot" data-day="5"></div>
+    <div class="progress-dot" data-day="6"></div>
+    <div class="progress-dot" data-day="7"></div>
+  </div>
+</section>
+
+<!-- DAYS -->
+<section class="days-section">
+  <div class="section-header">
+    <h2>7 Günlük Yolculuk</h2>
+    <p>Her kartı aç, görevi oku, hayatına uygula.</p>
+  </div>
+
+  <div class="days-grid" id="daysGrid">
+
+    <!-- DAY 1 -->
+    <div class="day-card" data-day="1">
+      <div class="day-number d1">
+        <div class="num">1</div>
+        <div class="label">Gün</div>
+        <div class="emoji">🤐</div>
+      </div>
+      <div class="day-content">
+        <div class="day-title">Fermuzarı Çek!</div>
+        <div class="day-teaser">Biz sustuğumuzda, çocukların vicdanı konuşmaya başlar. Bugün "dış ses" olmayı bırakıyoruz.</div>
+        <button class="toggle-btn" onclick="toggleDay(this)">Görevi Gör <span class="arrow">▼</span></button>
+        <div class="day-detail">
+          <p>Bugün çocuğun yanlış bir şey yaptığında hemen atlamak yerine sus ve bekle. Ne olacağını gözlemle.</p>
+          <p style="margin-top:12px; font-weight: 700; color: var(--terracotta);">Bakalım evde kaos mu çıkacak, yoksa mucizevi bir sükûnet mi? 👀</p>
+          <p style="margin-top:12px; background:#FFF3E0; padding:12px 16px; border-radius:12px; font-size:14px;"><strong>⚠️ Önemli Not:</strong> Bu oyuna başladığını çocuğuna söyleme!</p>
+          <button class="task-btn" onclick="markDone(this, 1)">✦ Görevi Tamamladım!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-card" data-day="2">
+      <div class="day-number d2">
+        <div class="num">2</div>
+        <div class="label">Gün</div>
+        <div class="emoji">❌</div>
+      </div>
+      <div class="day-content">
+        <div class="day-title">Bugün "Sen" Demek Yasak!</div>
+        <div class="day-teaser">"SEN" dili saldırır, "BEN" dili bağ kurar. Cümlelerini bir değiştir, her şey değişir.</div>
+        <button class="toggle-btn" onclick="toggleDay(this)">Görevi Gör <span class="arrow">▼</span></button>
+        <div class="day-detail">
+          <p>Çocuğuna "Sen" ile başlayan bir cümle kurduğunda beyni anında <strong>SAVUNMA MODU</strong>'na geçer ve kulaklarını sana kapatır. Bugün bunu değiştiriyoruz.</p>
+          <div class="example-block">
+            <div class="wrong">❌ "SEN odanı hiç toplamıyorsun!" (Saldırı)</div>
+            <div class="right">✅ "Odanı böyle görünce BEN çok yoruluyorum ve üzülüyorum." (İfade)</div>
+          </div>
+          <div class="example-block">
+            <div class="wrong">❌ "SEN susmayacak mısın?"</div>
+            <div class="right">✅ "Gürültü olunca BENim başım ağrıyor, sessizliğe ihtiyacım var."</div>
+          </div>
+          <button class="task-btn" onclick="markDone(this, 2)">✦ Görevi Tamamladım!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-card" data-day="3">
+      <div class="day-number d3">
+        <div class="num">3</div>
+        <div class="label">Gün</div>
+        <div class="emoji">🤫</div>
+      </div>
+      <div class="day-content">
+        <div class="day-title">Uzaktan Kumanda Ebeveynliğini Çöpe At!</div>
+        <div class="day-teaser">Mutfaktan bağırmak yerine: Kalk. Yanına git. Göz hizasına in. Ve sadece fısılda.</div>
+        <button class="toggle-btn" onclick="toggleDay(this)">Görevi Gör <span class="arrow">▼</span></button>
+        <div class="day-detail">
+          <p>Mesafe arttıkça ses yükselir, ses yükseldikçe çocuk kulaklarını kapatır. Bugün bu döngüyü kırıyoruz.</p>
+          <div class="example-block" style="border-left-color: #3498DB;">
+            <div style="font-weight: 800; margin-bottom: 10px; color: #2980B9;">Bugünkü 4 Adım:</div>
+            <div>1️⃣ Oturduğun yerden komut vermek YASAK</div>
+            <div>2️⃣ Kalk ve yanına git</div>
+            <div>3️⃣ Göz seviyesine in</div>
+            <div>4️⃣ Sadece fısılda 🤫</div>
+          </div>
+          <p>İnsan beyni bağırana direnir ama fısıldayanı <strong>merak eder.</strong></p>
+          <button class="task-btn" onclick="markDone(this, 3)">✦ Görevi Tamamladım!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day-card" data-day="4">
+      <div class="day-number d4">
+        <div class="num">4</div>
+        <div class="label">Gün</div>
+        <div class="emoji">🚪</div>
+      </div>
+      <div class="day-content">
+        <div class="day-title">Acil Çıkış Butonuna Bas!</div>
+        <div class="day-teaser">Çocuğunla girdiğin savaşı kazanırsan, çocuğunu kaybedersin. Bugün odayı terk etmek bir zafer.</div>
+        <button class="toggle-btn" onclick="toggleDay(this)">Görevi Gör <span class="arrow">▼</span></button>
+        <div class="day-detail">
+          <p>Kan beynine sıçradığında, tartışmayı alevlendirme. Sadece şu cümleyi kur ve odayı terk et:</p>
+          <div class="example-block" style="border-left-color: #E74C3C; background: #FDF2F2;">
+            <div style="font-size: 16px; font-weight: 800; color: #C0392B; text-align: center;">
+              "Şu an çok öfkeliyim ve seni kırmak istemiyorum. Sakinleşince konuşacağız."
+            </div>
+          </div>
+          <p>Bu bir yenilgi değil, bu bir <strong>irade zaferidir.</strong> Çocuğuna "Öfkeliyken susulur" dersini vermenin en asil yoludur.</p>
+          <p style="margin-top: 12px; font-size: 13px; color: #888;">📱 Bu cümleyi şimdi telefonuna not al!</p>
+          <button class="task-btn" onclick="markDone(this, 4)">✦ Görevi Tamamladım!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="day-card" data-day="5">
+      <div class="day-number d5">
+        <div class="num">5</div>
+        <div class="label">Gün</div>
+        <div class="emoji">🤗</div>
+      </div>
+      <div class="day-content">
+        <div class="day-title">Hata Yapınca Uyarmayı Bırak!</div>
+        <div class="day-teaser">Gergin bir sinir sistemini nutuklar değil, şefkatli bir temas yatıştırır. Bugün sarılmak var.</div>
+        <button class="toggle-btn" onclick="toggleDay(this)">Görevi Gör <span class="arrow">▼</span></button>
+        <div class="day-detail">
+          <p>Çocuğun bir hata yaptığında beyni "tehdit" algısıyla kapalıdır ve seni <strong>DUYMAZ.</strong> Uzun nutuklar boşuna.</p>
+          <div class="example-block" style="border-left-color: #27AE60;">
+            <div style="font-weight: 800; color: #27AE60; margin-bottom: 8px;">Bunun yerine:</div>
+            <div>1️⃣ Dilini tut</div>
+            <div>2️⃣ Yanına git</div>
+            <div>3️⃣ Sadece sar, elini omzuna koy veya saçını okşa ❤️</div>
+          </div>
+          <p>Temas, oksitosin (sevgi hormonu) salgılatır ve o anki inatlaşma duvarını saniyeler içinde yıkar.</p>
+          <p style="margin-top: 12px; font-weight: 700; color: var(--sage);">Bazen çocukların duymaya değil, sadece hissedilmeye ihtiyacı vardır.</p>
+          <button class="task-btn" onclick="markDone(this, 5)">✦ Görevi Tamamladım!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 6 -->
+    <div class="day-card" data-day="6">
+      <div class="day-number d6">
+        <div class="num">6</div>
+        <div class="label">Gün</div>
+        <div class="emoji">🤔</div>
+      </div>
+      <div class="day-content">
+        <div class="day-title">Çocuğun Robot Değil! Emir Vermeyi Bırak</div>
+        <div class="day-teaser">Emir verirsen direnir, soru sorarsan DÜŞÜNÜR. Bugün komutan değil rehber oluyoruz.</div>
+        <button class="toggle-btn" onclick="toggleDay(this)">Görevi Gör <span class="arrow">▼</span></button>
+        <div class="day-detail">
+          <p>Sürekli ne yapacağı söylenen bir beyin ya isyankar olur ya da her şeyi senden bekleyen bir robota dönüşür.</p>
+          <div class="example-block">
+            <div class="wrong">❌ "Hava çok soğuk, hemen montunu giy!"</div>
+            <div class="right">✅ "Dışarısı çok soğuk görünüyor, hasta olmamak için sence ne yapmalıyız?"</div>
+          </div>
+          <div class="example-block">
+            <div class="wrong">❌ "Hadi dişlerini fırçala, yatıyoruz!"</div>
+            <div class="right">✅ "Uykuya geçmeden önce dişlerimiz için yapılacak son adım neydi?"</div>
+          </div>
+          <p>Kendi beyninin bulduğu bir çözüme kimse itiraz edemez!</p>
+          <button class="task-btn" onclick="markDone(this, 6)">✦ Görevi Tamamladım!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 7 -->
+    <div class="day-card" data-day="7">
+      <div class="day-number d7">
+        <div class="num">7</div>
+        <div class="label">Gün</div>
+        <div class="emoji">🌟</div>
+      </div>
+      <div class="day-content">
+        <div class="day-title">Sessiz Güç Challenge Tamamlandı! Mucize Sendin!</div>
+        <div class="day-teaser">7 günlük yolculuğun bitti. Etrafına bak — o derin sessizliği, azalan inatlaşmaları fark ettin mi?</div>
+        <button class="toggle-btn" onclick="toggleDay(this)">Sonucu Gör <span class="arrow">▼</span></button>
+        <div class="day-detail">
+          <div style="background: linear-gradient(135deg, #FFF8E7, #FFF3CD); border-radius: 16px; padding: 24px; margin-bottom: 16px; border: 2px solid var(--gold);">
+            <p style="font-family: 'Playfair Display', serif; font-size: 18px; line-height: 1.9; color: var(--deep);">
+              Sen bağırmayı bıraktın, <strong>o duymaya başladı.</strong><br>
+              Sen dırdırı kestin, <strong>o kendi sorumluluğunu aldı.</strong><br>
+              Sen "Sen" dilini çöpe attın, <strong>o sana kalbini açtı.</strong><br>
+              Frekansı değiştirdin ve <strong>tüm evin enerjisi dönüştü!</strong>
+            </p>
+          </div>
+          <p>Otorite bağırmakla değil, <strong>kararlı ve şefkatli bir sessizlikle</strong> kurulur.</p>
+          <p style="margin-top: 12px; font-weight: 700; color: var(--terracotta); font-size: 17px;">Kendinle gurur duy. Sen harika bir iş çıkardın! 👏</p>
+          <button class="task-btn" onclick="markDone(this, 7)">🌟 Kampı Bitirdim!</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <strong>Sessiz Güç Ebeveynlik Kampı</strong>
+  Ebeveynlik bir varış noktası değil, bir yolculuktur.<br>
+  Eski ayarlara dönmek istediğinde bu 7 günü hatırla. 💛
+</footer>
+
+<script>
+  // Intersection observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.day-card').forEach(card => observer.observe(card));
+
+  // Completed state
+  const completed = new Set();
+
+  function updateProgress() {
+    const pct = Math.round((completed.size / 7) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = `${completed.size} / 7 Gün`;
+    document.querySelectorAll('.progress-dot').forEach(dot => {
+      const day = parseInt(dot.dataset.day);
+      dot.classList.toggle('done', completed.has(day));
+    });
+  }
+
+  function markDone(btn, day) {
+    completed.add(day);
+    btn.textContent = '✓ Tamamlandı!';
+    btn.classList.add('done');
+    btn.disabled = true;
+    const card = btn.closest('.day-card');
+    card.classList.add('completed');
+    updateProgress();
+  }
+
+  function toggleDay(btn) {
+    const card = btn.closest('.day-card');
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
